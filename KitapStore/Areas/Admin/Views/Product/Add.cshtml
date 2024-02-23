@@ -1,0 +1,78 @@
+﻿@model Product
+
+
+<h1>Add Product</h1>
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <span asp-validation-for="@Model.Title" class="text-danger"></span><br />
+        <label>name</label>
+        <input type="text" asp-for="@Model.Title" class="form-control" />
+
+        <label>ISBN</label>
+        <input type="text" asp-for="@Model.ISBN" class="form-control" />
+        <span asp-validation-for="@Model.ISBN" class="text-danger"></span><br />
+
+        <label>Author</label>
+        <input type="text" asp-for="@Model.Author" class="form-control" />
+        <span asp-validation-for="@Model.Author" class="text-danger"></span><br />
+
+        <label>Description</label>
+        <input type="text" asp-for="@Model.Description" class="form-control" />
+        <span asp-validation-for="@Model.Description" class="text-danger"></span><br />
+        <label>Price</label>
+        <input type="text" asp-for="@Model.Price" class="form-control" />
+        <span asp-validation-for="@Model.Price" class="text-danger"></span><br />
+    
+        <label>Category</label>
+        <input type="text" asp-for="@Model.Category.Name" class="form-control" /> 
+        <span asp-validation-for="@Model.Category.Name" class="text-danger"></span>
+
+        @* <select asp-for="Model.CategoryId" asp-items="(" class="form-select border-0 shadow">
+
+             <option disabled selected>--select category--</option>
+
+        </select> *@
+
+        <label>imageurl</label>
+        <input type="file"  name="file" class="form-control border-0 shadow" multiple />
+        
+        
+       
+
+        <button type="submit" class="btn btn-primary form-control mt-2">add</button>
+
+        <div class="col-6 col-md-3">
+            <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary border  form-control">
+                Back to List
+            </a>
+        </div>
+
+
+@* 
+        <div class="col-2">
+            @if (Model.ProductImages != null)
+            {
+                foreach (var image in Model.ProductImages)
+                {
+                    <div class="border p-1 m-2 text-center">
+                        <img src="@image.ImageUrl" width="100%"
+                             style="border-radius:5px; border:1px solid #bbb9b9" />
+                        <a asp-action="DeleteImage" class="btn btn-danger" asp-route-imageId="@image.Id">
+                            <i class="bi bi-trash-fill"></i> Delete
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+            *@
+
+    </form>
+</div>
+
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

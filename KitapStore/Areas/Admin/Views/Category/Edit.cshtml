@@ -1,0 +1,16 @@
+﻿@model Category
+
+<h1>Add Category</h1>
+
+<div>
+    <form method="post">
+        <input asp-for="Id" hidden />
+        <label>name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <label>Display order</label>
+        <input type="number" asp-for="DisplayOrder" class="form-control" />
+        <button type="submit" class="btn btn-primary form-control mt-2">add</button>
+
+    </form>
+</div>
+

@@ -1,0 +1,51 @@
+﻿@model Product
+
+
+
+<div class="row">
+
+    <h1>Edit Product</h1>
+<div class="col-6">
+        <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" hidden />
+
+        <span asp-validation-for="Title" class="text-danger"></span><br />
+        <label>name</label>
+        <input type="text" asp-for="Title" class="form-control" />
+
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+        <label>ISBN</label>
+        <input type="text" asp-for="ISBN" class="form-control" />
+
+        <span asp-validation-for="Author" class="text-danger"></span><br />
+        <label>Author</label>
+        <input type="text" asp-for="Author" class="form-control" />
+
+        <span asp-validation-for="Description" class="text-danger"></span><br />
+        <label>Description</label>
+        <input type="text" asp-for="Description" class="form-control" />
+
+        <span asp-validation-for="Price" class="text-danger"></span><br />
+        <label>Price</label>
+        <input type="text" asp-for="Price" class="form-control" />
+
+
+        <span asp-validation-for="Category.Name" class="text-danger"></span><br />
+        <label>Category</label>
+        <input type="text" asp-for="Category.Name" class="form-control" />
+
+            <label>image </label>
+            <input type="file" name="file" asp-for="@Model.ImageUrl" class="form-control" />
+
+        <button type="submit" class="btn btn-primary form-control mt-2">add</button>
+           
+
+    </form>
+      
+     
+    </div>
+      <div class="col-4">
+            <img src="@Model.ImageUrl" class="card-img-top rounded" />
+        </div>
+</div>
+

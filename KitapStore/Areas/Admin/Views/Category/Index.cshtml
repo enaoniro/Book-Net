@@ -1,0 +1,42 @@
+﻿
+
+@model List<Category>
+<h5 class="border "><partial name="_Notification" /></h5>
+<div class="container-fluid row ">
+    <div class="d-flex flex-row justify-content-between">
+        <h1 class="d-inline">category list </h1>
+        <a asp-controller="Category" asp-action="Add" class="border p-2 my-1 text-decoration-none bg-primary text-light rounded-top">add category</a>
+    </div>
+    <table class="table table-bordered hover table-striped">
+        <thead>
+             <tr>
+                <th>
+                    name
+                </th>
+                <th>
+                    display order
+                </th>
+                <th>
+                    action
+                </th>
+             </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+                {
+            <tr>
+                <td>@obj.Name</td>
+                <td>@obj.DisplayOrder</td>
+                <td>
+                        <a asp-for-controller="Category" asp-action="Edit"
+                        asp-route-id="@obj.Id" class="border p-2 my-1 mr-1 text-decoration-none bg-warning text-primary rounded-3">edit</a>
+                        <a asp-for-controller="Category" asp-action="Delete"
+                        asp-route-id="@obj.Id" class="text-danger me-1 border p-2 my-1 text-decoration-none bg-danger text-light rounded-3">delete</a>
+                </td>
+                
+            </tr>
+                }
+        </tbody>
+
+    </table>
+</div>
